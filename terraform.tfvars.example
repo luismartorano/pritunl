@@ -1,0 +1,31 @@
+# AWS
+region  = "sa-east-1"
+profile = "hub"
+
+#VPC - HUB Wordpress
+environment  = "prod"
+public_cidr  = "10.32.0.0/16"
+private_cidr = "10.33.0.0/16"
+azs          = slice(data.aws_availability_zones.available.names, 0, 3)
+
+############ WORDPRESS ##################
+# chave
+key_name = "teste-key"
+
+# SecurityGroup
+instance_sg_name = "teste-ami-sg"
+lb_sg_name       = "teste-lb"
+
+# EC2
+instance_name = "teste-sa-east-1-blog"
+ami           = "ami-0f88e58297b57d53b"
+instance_type = "t3.medium"
+##########################################
+
+# alb
+alb_tg_name  = "testetg"
+alb_alb_name = "testelb"
+
+# Route53
+domain_name = "teste.hub.vitta.com.br"
+domain_root = "hub.vitta.com.br"
